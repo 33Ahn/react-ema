@@ -8,12 +8,33 @@ function AllEmployeeComponent() {
     const [employees, setEmployees] = useState([])
 
     useEffect(() => {
+
+        getAllEmployees();
+        
+        // EmployeeService.getAllEmployees().then((response) => {
+        //     setEmployees(response.data)
+        //     console.log(response.data);
+        // }).catch(error => {console.log(error);
+        // })
+    }, [])
+
+    const getAllEmployees = () => {
         EmployeeService.getAllEmployees().then((response) => {
             setEmployees(response.data)
             console.log(response.data);
         }).catch(error => {console.log(error);
         })
-    }, [])
+    }
+
+
+    const deleteEmployee = (employeeId) => {
+        EmployeeService.deleteEmployee(employeeId).then((response) => {
+            getAllEmployees();
+        }).catch(error => {
+            console.log(error);
+        })
+    }
+
 
     return (
         <div className="container">
@@ -36,7 +57,8 @@ function AllEmployeeComponent() {
                                 <td>{employee.lastName}</td>
                                 <td>{employee.email}</td>
                                 <td>
-                                    <Link className="btn btn-info" to={`/update-employee/${employee.id}`} >Update</Link>
+                                    <Link className="btn btn-info mr-2 btn-sm" to={`/update-employee/${employee.id}`} >Update</Link>
+                                    <button className="btn btn-danger btn-sm" onClick={()=> deleteEmployee(employee.id)}>Delete</button>
                                 </td>
                             </tr>
                         )
