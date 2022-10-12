@@ -3,6 +3,7 @@ import {BrowserRouter as Router, Route, Routes} from 'react-router-dom';
 import FooterComponent from './components/FooterComponent';
 import HeaderComponent from './components/HeaderComponent';
 import AllEmployeeComponent from './components/AllEmployeeComponent';
+import AddEmployeeComponent from './components/AddEmployeeComponent';
 
 
 
@@ -16,6 +17,7 @@ function App() {
               <Routes>
                 <Route exact path="/" element = {<AllEmployeeComponent />}></Route>
                 <Route path="/employees" element = {<AllEmployeeComponent />}></Route>
+                <Route path="/add-employee" element = {<AddEmployeeComponent />}></Route>
               </Routes>
               {/* <AllEmployeeComponent />               */}
             </div>

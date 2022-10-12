@@ -1,4 +1,6 @@
+
 import React, { useEffect, useState } from 'react'
+import { Link } from 'react-router-dom'
 import EmployeeService from '../services/EmployeeService'
 
 function AllEmployeeComponent() {
@@ -15,7 +17,8 @@ function AllEmployeeComponent() {
 
     return (
         <div className="container">
-            <h2>Employee Lists</h2>
+            <h2 className="text-center">Employee Lists</h2>
+            <Link to= "/add-employee" className="btn btn-success">Add Employee</Link>            
             <table className="table table-bordered">
                 <thead className="table-success">
                     <th>ID</th>
