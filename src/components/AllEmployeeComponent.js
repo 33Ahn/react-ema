@@ -9,14 +9,15 @@ function AllEmployeeComponent() {
         EmployeeService.getAllEmployees().then((response) => {
             setEmployees(response.data)
             console.log(response.data);
-        }).catch(error => console.log(error))
+        }).catch(error => {console.log(error);
+        })
     }, [])
 
     return (
         <div className="container">
             <h2>Employee Lists</h2>
-            <table className=" table table-bordered table-hover">
-                <thead>
+            <table className="table table-bordered">
+                <thead className="table-success">
                     <th>ID</th>
                     <th>First Name</th>
                     <th>Last Name</th>
@@ -25,7 +26,7 @@ function AllEmployeeComponent() {
                 <tbody>
                     {
                         employees.map(employee => 
-                            <tr key = {employee.id}>
+                            <tr  key = {employee.id}>
                                 <td>{employee.id}</td>
                                 <td>{employee.firstName}</td>
                                 <td>{employee.lastName}</td>
@@ -34,7 +35,6 @@ function AllEmployeeComponent() {
                         )
                     }
                 </tbody>
-
             </table>
         </div>
     )

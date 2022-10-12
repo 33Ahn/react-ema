@@ -1,15 +1,18 @@
 import './App.css';
+import FooterComponent from './components/FooterComponent';
+import HeaderComponent from './components/HeaderComponent';
 import AllEmployeeComponent from './components/AllEmployeeComponent';
+
+
 
 function App() {
   return (
-    <div className="App">
-      {/* <header className="App-header"> */}
-        {/* <h1>Hello World!</h1> */}
+    <div>      
         <div>
+          <HeaderComponent />
           <AllEmployeeComponent />
-        </div>
-      {/* </header> */}
+          <FooterComponent />
+        </div>     
     </div>
   );
 }
