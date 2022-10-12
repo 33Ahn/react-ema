@@ -17,14 +17,15 @@ function AllEmployeeComponent() {
 
     return (
         <div className="container">
-            <h2 className="text-center">Employee Lists</h2>
-            <Link to= "/add-employee" className="btn btn-success">Add Employee</Link>            
+            <h2 className="text-center mt-3">Employee Lists</h2>
+            <Link to= "/add-employee" className="btn btn-success mb-2">Add Employee</Link>            
             <table className="table table-bordered">
                 <thead className="table-success">
                     <th>ID</th>
                     <th>First Name</th>
                     <th>Last Name</th>
                     <th>Email</th>
+                    <th>Actions</th>
                 </thead>
                 <tbody>
                     {
@@ -34,6 +35,9 @@ function AllEmployeeComponent() {
                                 <td>{employee.firstName}</td>
                                 <td>{employee.lastName}</td>
                                 <td>{employee.email}</td>
+                                <td>
+                                    <Link className="btn btn-info" to={`/update-employee/${employee.id}`} >Update</Link>
+                                </td>
                             </tr>
                         )
                     }

@@ -1,4 +1,7 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
+import { Link, useNavigate, useParams } from 'react-router-dom'
+import EmployeeService from '../services/EmployeeService';
+
 
 const AddEmployeeComponent = () => {
 
@@ -6,12 +9,41 @@ const AddEmployeeComponent = () => {
     const [lastName, setLastName] = useState('');
     const [email, setEmail] = useState('');
 
+    const navigate = useNavigate();
+
+    const {id} = useParams();
+
     const saveEmployee = (e) => {
         e.preventDefault();
 
         const employee = {firstName, lastName, email}
+        // console.log(employee);
 
-        console.log(employee);
+        EmployeeService.createEmployee(employee).then((response) => {
+            console.log(response.data)
+            navigate.push('/employees')
+        }).catch(error => {
+            console.log(error)
+        })
+    }
+
+    useEffect(() => {
+
+        EmployeeService.getEmployeeById(id).then((response) => {
+            setFirstName(response.data.firstName)
+            setLastName(response.data.lastName)
+            setEmail(response.data.email)
+        }).catch(error => {
+            console.log(error)
+        })
+    }, [])
+
+    const changeForm = () => {
+        if (id) {
+            return <h2 className="text-center">Update Employee</h2>
+        } else {
+            return <h2 className="text-center">Add Employee</h2>
+        }
     }
 
     return (
@@ -19,7 +51,10 @@ const AddEmployeeComponent = () => {
             <br></br>
             <div className="row">
                 <div className="card col-md-6 offset-md-3 offset-md-3">
-                    <h2 className="text-center mt-4">Add Employee</h2>
+                    {/* <h2 className="text-center mt-4">Add Employee</h2> */}
+                    {
+                        changeForm()
+                    }
                     <div className="card-body">
                         <form>
                             <div className="form-group md-3">
@@ -58,7 +93,8 @@ const AddEmployeeComponent = () => {
                                 </input>
                             </div>
 
-                            <button className="btn btn-success mt-2 mb-2" onClick={(e) => saveEmployee(e)}>Submit</button>
+                            <button className="btn btn-success mt-2 mb-2 mr-3" onClick={(e) => saveEmployee(e)}>Submit</button>
+                            <Link to='/employees' className="btn btn-danger">Cancel</Link>
                         </form>
                     </div>
                 </div>
