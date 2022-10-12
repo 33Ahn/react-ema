@@ -4,7 +4,7 @@ const FooterComponent = () => {
   return (
     <div>
         <footer className="footer">
-            <p>All Rights Reserved 2022 @ABCD</p>
+            <p class="text-black-50">All Rights Reserved 2022 @Your Dream Company</p>
         </footer>
     </div>
   )

@@ -10,7 +10,7 @@ function AllEmployeeComponent() {
     useEffect(() => {
 
         getAllEmployees();
-        
+
         // EmployeeService.getAllEmployees().then((response) => {
         //     setEmployees(response.data)
         //     console.log(response.data);
@@ -37,10 +37,10 @@ function AllEmployeeComponent() {
 
 
     return (
-        <div className="container">
+        <div className="container  table-responsive-sm">
             <h2 className="text-center mt-3">Employee Lists</h2>
-            <Link to= "/add-employee" className="btn btn-success mb-2">Add Employee</Link>            
-            <table className="table table-bordered">
+            <Link to= "/add-employee" className="btn btn-success mb-2 ">Add Employee</Link>            
+            <table className="table table-bordered table-hover">
                 <thead className="table-success">
                     <th>ID</th>
                     <th>First Name</th>
@@ -57,8 +57,8 @@ function AllEmployeeComponent() {
                                 <td>{employee.lastName}</td>
                                 <td>{employee.email}</td>
                                 <td>
-                                    <Link className="btn btn-info mr-2 btn-sm" to={`/update-employee/${employee.id}`} >Update</Link>
-                                    <button className="btn btn-danger btn-sm" onClick={()=> deleteEmployee(employee.id)}>Delete</button>
+                                    <Link className="btn btn-outline-success mr-2 btn-sm" to={`/update-employee/${employee.id}`} >Update</Link>
+                                    <button className="btn btn-outline-danger btn-sm" onClick={()=> deleteEmployee(employee.id)}>Delete</button>
                                 </td>
                             </tr>
                         )

@@ -19,8 +19,7 @@ function App() {
                 <Route path="/employees" element = {<AllEmployeeComponent />}></Route>
                 <Route path="/add-employee" element = {<AddEmployeeComponent />}></Route>
                 <Route path="/update-employee/:id" element = {<AddEmployeeComponent />}></Route>
-              </Routes>
-             
+              </Routes>             
             </div>
             <FooterComponent />
           </Router>

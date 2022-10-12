@@ -46,11 +46,11 @@ const AddEmployeeComponent = () => {
         })
     }, [])
 
-    const changeForm = () => {
+    const changeHeader = () => {
         if (id) {
-            return <h2 className="text-center">Update Employee</h2>
+            return <h2 className="text-center mt-4">Update Employee</h2>
         } else {
-            return <h2 className="text-center">Add Employee</h2>
+            return <h2 className="text-center mt-4">Add Employee</h2>
         }
     }
 
@@ -58,10 +58,11 @@ const AddEmployeeComponent = () => {
         <div className="container">
             <br></br>
             <div className="row">
-                <div className="card col-md-6 offset-md-3 offset-md-3">
+                <div className="card col-md-6 offset-md-3 offset-md-3 mt-3 shadow p-3 mb-5 bg-white rounded">
+                    
                     {/* <h2 className="text-center mt-4">Add Employee</h2> */}
                     {
-                        changeForm()
+                        changeHeader()
                     }
                     <div className="card-body">
                         <form>
@@ -101,8 +102,8 @@ const AddEmployeeComponent = () => {
                                 </input>
                             </div>
 
-                            <button type="submit" className="btn btn-success mt-2 mb-2 mr-3" onClick={(e) => saveOrUpdateEmployee(e)}>Submit</button>
-                            <Link to='/employees' className="btn btn-danger">Cancel</Link>
+                            <button type="button" className="btn btn-outline-success mt-2 mb-2 mr-3" onClick={(e) => saveOrUpdateEmployee(e)}>Submit</button>
+                            <Link to='/employees' className="btn btn-outline-danger">Cancel</Link>
                         </form>
                     </div>
                 </div>
